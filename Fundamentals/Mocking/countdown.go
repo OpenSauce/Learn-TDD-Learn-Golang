@@ -9,6 +9,12 @@ import (
 
 const finalWord = "Go!"
 const countdownStart = 3
+const write = "write"
+const sleep = "sleep"
+
+func LetsWriteAGoFunction(output string) {
+	fmt.Print("Yo, what'sup, this is Go!")
+}
 
 func Countdown(out io.Writer, sleeper Sleeper) {
 	for i := countdownStart; i > 0; i-- {
@@ -55,9 +61,6 @@ func (s *CountdownOperationsSpy) Write(p []byte) (n int, err error) {
 	s.Calls = append(s.Calls, write)
 	return
 }
-
-const write = "write"
-const sleep = "sleep"
 
 type ConfigurableSleeper struct {
 	duration time.Duration
